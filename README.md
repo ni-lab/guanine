@@ -11,6 +11,11 @@
                                                    
 ### %% Under Development %% 
 
+Our temporary submission method is via uploading test-set predictions to a Google form: [https://forms.gle/NhYSwH3Rjn3ShRzQ7](https://forms.gle/NhYSwH3Rjn3ShRzQ7)
+
+We will be launching an automatic evaluation server at a later date
+
+
 ## Intro
 The GUANinE benchmark for genomic AI uses the [Hugging Face](https://huggingface.co/) API for dataset loading. **We are in the process of creating dataloading scripts for each dataset, so at the moment you'll need to clone the task repository and manually load the data.** GUANinE uses predetermined splits for each task, with private test set labels for our leaderboard (Coming soon!).  
 
@@ -54,8 +59,38 @@ sequence = hg38[chr][start:end]
 print(chr, center, train_bed.iloc[0]['y'], sequence)
 ## chr2 205691090 1 TAACCAGTAAC...
 ```
+## Baseline Model Usage 
 
-### We will be providing details on how to score your predictions on the test set shortly
+We are in the process of uploading our T5 baseline models, pretrained and unpretrained. For models that are not pretrained with span corruption (language modeling), the default branch of each model is our dnase-propensity task. 
+
+```python 
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+import torch
+
+# load the input tokenizer and trained model on a CPU
+tokenizer = AutoTokenizer.from_pretrained("guanine/t5_baseline")
+model = AutoModelForSeq2SeqLM.from_pretrained("guanine/t5_baseline")
+
+# load the output tokenizer and perform a prediction 
+output_tokenizer = AutoTokenizer.from_pretrained("guanine/t5_regression_vocab")
+inputs = tokenizer('TCGATCGATCGATCGA', return_tensors='pt') 
+decoder_input_ids = torch.tensor([[0]]) # required for decoding outputs
+
+# inference w/o gradients
+with torch.no_grad():
+  out = model(**inputs, decoder_input_ids=decoder_input_ids)
+  logits = out['logits']
+
+# predictions is a string, T5 models by default is a text-to-text transformer 
+predictions = output_tokenizer.decode(logits.argmax().numpy().tolist())
+
+```
+
+To access a model trained on a different task, use 
+```python
+# revision is one of main, ccre_propensity, cons30, cons100, gpra_c, and gpra_d
+model = AutoModelForSeq2SeqLM.from_pretrained("guanine/t5_baseline", revision='ccre_propensity')
+```
 
 
 
