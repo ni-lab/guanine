@@ -8,7 +8,10 @@
  | |__| || |__| |/ ____ \ | |\  || || | | || |____ 
   \_____| \____//_/    \_\|_| \_||_||_| |_||______|
 ```
-                                                   
+
+Read the GUANinE preprint !! 
+[https://www.biorxiv.org/content/10.1101/2023.10.12.562113v1](https://www.biorxiv.org/content/10.1101/2023.10.12.562113v1)
+                                                
 ### %% Under Development %% 
 
 Our temporary submission method is via uploading test-set predictions to a Google form: [https://forms.gle/NhYSwH3Rjn3ShRzQ7](https://forms.gle/NhYSwH3Rjn3ShRzQ7)
