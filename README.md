@@ -9,10 +9,30 @@
   \_____| \____//_/    \_\|_| \_||_||_| |_||______|
 ```
 
-Read the GUANinE preprint !! 
-[https://www.biorxiv.org/content/10.1101/2023.10.12.562113v1](https://www.biorxiv.org/content/10.1101/2023.10.12.562113v1)
+Read the GUANinE paper !! 
+
+[https://proceedings.mlr.press/v240/robson24a/robson24a.pdf](https://proceedings.mlr.press/v240/robson24a/robson24a.pdf)
+
+
+```
+@InProceedings{pmlr-v240-robson24a,
+  title = 	 {GUANinE v1.0: Benchmark Datasets for Genomic AI Sequence-to-Function Models},
+  author =       {robson, eyes s. and Ioannidis, Nilah},
+  booktitle = 	 {Proceedings of the 18th Machine Learning in Computational Biology meeting},
+  pages = 	 {250--266},
+  year = 	 {2024},
+  editor = 	 {Knowles, David A. and Mostafavi, Sara},
+  volume = 	 {240},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {30 Nov--01 Dec},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v240/robson24a/robson24a.pdf},
+  url = 	 {https://proceedings.mlr.press/v240/robson24a.html},
+  abstract = 	 {Computational genomics increasingly relies on machine learning methods for genome interpretation, and the recent adoption of neural sequence-to-function models highlights the need for rigorous model specification and controlled evaluation, problems familiar to other fields of AI. Research strategies that have greatly benefited other fields — including benchmarking, auditing, and algorithmic fairness — are also needed to advance the field of genomic AI and to facilitate model development. Here we propose a genomic AI benchmark, GUANinE, for evaluating model generalization across a number of distinct genomic tasks. Compared to existing task formulations in computational genomics, GUANinE is large-scale, de-noised, and suitable for evaluating pretrained models. GUANinE v1.0 primarily focuses on functional genomics tasks such as functional element annotation and gene expression prediction, and it also draws upon connections to evolutionary biology through sequence conservation tasks. The current GUANinE tasks provide insight into the performance of existing genomic AI models and non-neural baselines, with opportunities to be refined, revisited, and broadened as the field matures. Finally, the GUANinE benchmark allows us to evaluate new self-supervised T5 models and explore the tradeoffs between tokenization and model performance, while showcasing the potential for self-supervision to complement existing pretraining procedures.}
+}
+```
                                                 
-### %% Under Development %% 
+### Under Development
 
 Our temporary submission method is via uploading test-set predictions to a Google form: [https://forms.gle/NhYSwH3Rjn3ShRzQ7](https://forms.gle/NhYSwH3Rjn3ShRzQ7)
 
