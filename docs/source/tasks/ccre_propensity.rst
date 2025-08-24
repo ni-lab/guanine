@@ -54,7 +54,7 @@ Because `SCREEN v2`_ relies on *consensus* peak calling, the peak called loci fo
 
 Finally, for ease of modeling, the raw :math:`y_H(X)` scores are binned from one to four (1-4), and a partially G/C-balanced *control* set of accessible sequences (i.e. from dnase_propensity) are added to the dataset with labels of zero (0). 
 
-controlled factors: 
+controlled factors
 -------------------
 - repetitive elements (partial)
 - G/C content (partial)
@@ -63,11 +63,11 @@ controlled factors:
 
 appears in
 ---------------- 
-GUANinE v1.0
+`GUANinE v1.0`_
 
 |
 
 
-
+.. _`GUANinE v1.0`: https://proceedings.mlr.press/v240/robson24a.html 
 .. _`SCREEN v2`: https://screen.encodeproject.org/
 .. _`ENCODE`: https://www.encodeproject.org/
