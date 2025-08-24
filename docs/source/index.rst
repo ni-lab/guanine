@@ -12,7 +12,37 @@ guanine documentation
     :alt: GUANinE Logo
     :align: center
 
+.. toctree::
+    :maxdepth: 2
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+    Overview <index.rst>
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tasks:
+   
+   tasks/dnase_propensity
+   tasks/ccre_propensity
+
+.. toctree::
+    :caption: Getting Started
+    :maxdepth: 2
+
+    installation
+    evaluation
+    scoring
+
+.. toctree::
+    :caption: Leaderboard
+    :maxdepth: 2
+
+    full
+    submission
+
+.. toctree::
+    :caption: Resources & Contact
+    :maxdepth: 2
+
+    release-notes
+    contributing
+    contact
