@@ -27,8 +27,9 @@ html_static_path = ['_static']
 
 html_sidebars = {
     "**": [
+        "localtoc.html",
         "globaltoc.html",
-    ]
+    ],
 }
 
 html_theme_options = {
@@ -39,7 +40,7 @@ html_theme_options = {
         },
     ],
      "globaltoc_expand_depth": 1,
-     "toctree_collapse": True,
+     "toctree_collapse": False,
      "light_logo": "_static/guanine_logo.png",
      "dark_logo": "_static/guanine_logo_dark.png",
 }
