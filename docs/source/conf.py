@@ -27,7 +27,7 @@ html_static_path = ['_static']
 root_doc = 'toctree'
 
 html_sidebars = {
-    "**": ["globaltoc.html", "localtoc.html", "searchbox.html"]
+    "**": ["localtoc.html"]
 }
 
 html_theme_options = {
