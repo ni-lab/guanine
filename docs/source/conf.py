@@ -26,15 +26,8 @@ html_theme = 'shibuya'
 html_static_path = ['_static']
 
 html_sidebars = {
-    "**": [
-        "localtoc.html",
-        "globaltoc.html",
-    ],
-    "toctree.html" : [
-        "globaltoc.html",
-    ],
+    "**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]
 }
-
 html_theme_options = {
     "nav_links": [
         {
