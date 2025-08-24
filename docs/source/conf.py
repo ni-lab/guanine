@@ -24,6 +24,7 @@ exclude_patterns = []
 
 html_theme = 'shibuya'
 html_static_path = ['_static']
+master_doc = "toctree"
 
 html_sidebars = {
     "**": [
