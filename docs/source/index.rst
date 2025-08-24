@@ -11,10 +11,10 @@ guanine documentation
    :maxdepth: 1
    :caption: Overview
 
-   self
+   Overview <self>
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Contents:
+   :maxdepth: 2
+   :caption: Contents
 
    toctree
