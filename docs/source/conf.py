@@ -19,10 +19,27 @@ extensions = []
 templates_path = ['_templates']
 exclude_patterns = []
 
-
+html_logo = "_static/guanine_logo.png"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'shibuya'
 html_static_path = ['_static']
+
+html_sidebars = {
+    "**": [
+        "globaltoc.html",
+    ]
+}
+
+html_theme_options = {
+    "nav_links": [
+        {
+            "title": "Contact",
+            "url": "eyes-robson.github.io",
+        },
+    ],
+     "toctree_collapse": True
+}
+
