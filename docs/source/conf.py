@@ -38,6 +38,7 @@ html_theme_options = {
             "url": "eyes-robson.github.io",
         },
     ],
+     "globaltoc_expand_depth": 1,
      "toctree_collapse": True,
      "light_logo": "_static/guanine_logo.png",
      "dark_logo": "_static/guanine_logo_dark.png",
