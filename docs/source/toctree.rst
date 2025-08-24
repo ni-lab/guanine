@@ -12,28 +12,28 @@ GUANinE
    :maxdepth: 2
    :caption: Tasks:
    
-   dnase_propensity <tasks/dnase_propensity>
-   ccre_propensity  <tasks/ccre_propensity>
+   tasks/dnase_propensity
+   tasks/ccre_propensity
 
 .. toctree::
     :caption: Getting Started
     :maxdepth: 2
 
-    installation.rst
-    evaluation.rst
-    scoring.rst
+    installation
+    evaluation
+    scoring
 
 .. toctree::
     :caption: Leaderboard
     :maxdepth: 2
 
-    full.rst
-    submission.rst
+    full
+    submission
 
 .. toctree::
     :caption: Resources & Contact
     :maxdepth: 2
 
-    release-notes.rst
-    contributing.rst
-    contact.rst
+    release-notes
+    contributing
+    contact
