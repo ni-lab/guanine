@@ -4,6 +4,11 @@ GUANinE
 
 .. toctree::
    :maxdepth: 2
+   
+   Overview <index.rst>
+
+.. toctree::
+   :maxdepth: 2
    :caption: Tasks
    
    tasks/dnase_propensity

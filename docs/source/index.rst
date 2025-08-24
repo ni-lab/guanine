@@ -3,18 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-guanine documentation
-=====================
+================
+GUANinE overview
+================
 
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Overview
-
-   Overview <self>
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents
-
-   toctree
+GUANinE is a benchmark for sequence-to-function models in genomics, concentrating on human (and eukaryotic) reference genomes. 
