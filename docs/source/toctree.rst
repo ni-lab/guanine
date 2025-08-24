@@ -2,15 +2,9 @@
 GUANinE
 =======
 
-
-.. toctree::
-    :maxdepth: 2
-
-    Overview <index.rst>
-
 .. toctree::
    :maxdepth: 2
-   :caption: Tasks:
+   :caption: Tasks
    
    tasks/dnase_propensity
    tasks/ccre_propensity

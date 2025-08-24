@@ -1,5 +1,5 @@
 ======================
-task: ccre_propensity
+ccre_propensity
 ======================
 
  | tags: candidate cis-Regulatory Elements, cCREs, Histone Marks, DHS, functional genomics, sequence function, reference sequences

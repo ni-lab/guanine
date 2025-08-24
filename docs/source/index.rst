@@ -7,42 +7,14 @@ guanine documentation
 =====================
 
 
-.. image:: _static/guanine_logo.png
-    :width: 140px
-    :alt: GUANinE Logo
-    :align: center
+.. toctree::
+   :maxdepth: 1
+   :caption: Overview
+
+   self
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 1
+   :caption: Contents:
 
-    Overview <index.rst>
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Tasks:
-   
-   tasks/dnase_propensity
-   tasks/ccre_propensity
-
-.. toctree::
-    :caption: Getting Started
-    :maxdepth: 2
-
-    installation
-    evaluation
-    scoring
-
-.. toctree::
-    :caption: Leaderboard
-    :maxdepth: 2
-
-    full
-    submission
-
-.. toctree::
-    :caption: Resources & Contact
-    :maxdepth: 2
-
-    release-notes
-    contributing
-    contact
+   toctree

@@ -1,5 +1,5 @@
 ======================
-task: dnase_propensity
+dnase_propensity
 ======================
 
  | tags: DNase hypersensitive sites, DHS, accessibility, functional genomics, sequence function, reference sequences
