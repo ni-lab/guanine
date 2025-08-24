@@ -20,7 +20,7 @@ GUANinE
     :maxdepth: 2
 
     installation.rst
-    custom_evaluations.rst
+    evaluation.rst
     scoring.rst
 
 .. toctree::
@@ -34,6 +34,6 @@ GUANinE
     :caption: Resources & Contact
     :maxdepth: 2
 
-    release.rst
+    release-notes.rst
     contributing.rst
     contact.rst
