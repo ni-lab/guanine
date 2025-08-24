@@ -19,8 +19,6 @@ extensions = []
 templates_path = ['_templates']
 exclude_patterns = []
 
-html_logo = "_static/guanine_logo.png"
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -40,6 +38,8 @@ html_theme_options = {
             "url": "eyes-robson.github.io",
         },
     ],
-     "toctree_collapse": True
+     "toctree_collapse": True,
+     "light_logo": "_static/guanine_logo.png",
+     "dark_logo": "_static/guanine_logo_dark.png",
 }
 

@@ -6,6 +6,13 @@
 guanine documentation
 =====================
 
+
+.. image:: _static/guanine_logo.png
+    :width: 140px
+    :alt: GUANinE Logo
+    :align: center
+
+
 Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 documentation for details.
