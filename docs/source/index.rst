@@ -4,7 +4,7 @@
 GUANinE overview
 ================
 
-``G``enome ``U``nderstanding ``A``nd a``N``notation ``in`` silico ``E``valuation, or ``GUANinE``, is a benchmark for sequence-to-function models in genomics, concentrating on human (and eukaryotic) reference genomes. 
+``G``\ enome ``U``\ nderstanding ``A``\ nd a\ ``N``\ notation ``in`` silico ``E``\ valuation, or ``GUANinE``, is a benchmark for sequence-to-function models in genomics, concentrating on human (and eukaryotic) reference genomes. 
 
 |
 
