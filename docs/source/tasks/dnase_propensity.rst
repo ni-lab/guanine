@@ -8,6 +8,10 @@ tl;dr
 ------ 
 ``dnase_propensity`` (aka ``dnase_prop``) measures the tendency of a DNA sequence to be accessible, i.e. cut or cleaved by the DNase enzyme. Unlike the typical concept of a DNase Hypersensitive Site (DHS), this propensity, or disposition, is agnostic to cell-types and instead measures *basal* sequence accessibility across tissues and organs. 
 
+overview
+--------
+For a DNA sequence to function, it cannot be densely packed away in closed chromatin -- it must be 'unpacked,' i.e. accessible. The simplest measure of 'unpackedness' is a sequence's ability to be digested by a DNase enzyme, which naturally slices up any 'loose' DNA. The idea that certain regions of the genome are regularly, if not always, accessible lead to the idea of (functional) *elements* being located in "DNase-hypersensitive" positions across the genome, hence the task's name. 
+
 |
 
 ``dnase_prop`` was constructed on the human reference genome ``hg38`` based on a combination of DHS tracks from the `SCREEN v2`_ database, a subset of ENCODE_. Sequence labels :math:`y` correspond to the likelihood a sequence would be annotated as accessible (a DHS) -- an essential indicator of sequence function. Although ``dnase_prop`` is cell-type-agnostic, cell-type-specific models will perform well on this task due to the nature of its construction. The high-level statistical model is :math:`y \sim p(\textrm{DHS} \ | \ X)` for :math:`X` a given DNA sequence. 
