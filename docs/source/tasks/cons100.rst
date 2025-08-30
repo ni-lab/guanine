@@ -52,6 +52,11 @@ appears in
 ---------------- 
 `GUANinE v1.0`_
 
+original citation
+-----------------
+
+Pollard KS, Hubisz MJ, Siepel A. Detection of non-neutral substitution rates on mammalian phylogenies. Genome Res. 2010 Jan;20(1):110-21. (http://genome.cshlp.org/content/20/1/110.long)
+
 |
 
 .. _`Waters et al. (2021)`: https://pmc.ncbi.nlm.nih.gov/articles/PMC8609325/

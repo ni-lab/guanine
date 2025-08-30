@@ -53,7 +53,12 @@ appears in
 ---------------- 
 `GUANinE v1.0`_
 
-| 
+original citation
+-----------------
+
+The ENCODE Project Consortium., Moore, J.E., Purcaro, M.J. et al. Expanded encyclopaedias of DNA elements in the human and mouse genomes. Nature 583, 699–710 (2020). https://doi.org/10.1038/s41586-020-2493-4
+
+|
 
 .. _`ccre_propensity`: ./ccre_propensity.html
 .. _`GUANinE v1.0`: https://proceedings.mlr.press/v240/robson24a.html 

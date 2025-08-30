@@ -39,6 +39,12 @@ appears in
 ---------------- 
 `GUANinE v1.1`_
 
+original citation
+-----------------
+
+Melissa J Landrum, Jennifer M Lee, Mark Benson, et al. ClinVar: improving access to variant interpretations and supporting evidence, Nucleic Acids Research, Volume 46, Issue D1, 4 January 2018, Pages D1062–D1067, https://doi.org/10.1093/nar/gkx1153
+
+
 |
 
 .. _`PSM`: https://en.wikipedia.org/wiki/Propensity_score_matching

@@ -34,6 +34,10 @@ appears in
 ---------------- 
 `GUANinE v1.0`_
 
+original citation
+-----------------
+Eeshit Dhaval Vaishnav, Carl de Boer, & Aviv Regev. (2022). The evolution, evolvability and engineering of gene regulatory DNA. https://doi.org/10.1038/s41586-022-04506-6
+
 |
 
 .. _`gpra-c`: ./gpra_c.html
