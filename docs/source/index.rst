@@ -36,7 +36,7 @@ GUANinE Tasks, at a high level
 | `clinvar-snv`_| Pathogenicity       | Sequence variant  | Human (clinical)  |
 +---------------+---------------------+-------------------+-------------------+
 
-For a detailed comparison of tasks, consult the `task comparison`_ page. 
+.. seealso:: For a detailed comparison of tasks, consult the `task comparison`_ page. 
 
 |
 
