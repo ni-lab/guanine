@@ -3,15 +3,18 @@ GUANinE
 =======
 
 .. toctree::
+   :caption: Getting Started
    :maxdepth: 2
-   
-   Overview <index.rst>
 
+   Overview <index.rst>
+   task_comparison
+   installation
+   evaluation
+   
 .. toctree::
    :maxdepth: 2
-   :caption: Tasks
+   :caption: the tasks
    
-   task_comparison
    tasks/dnase_propensity
    tasks/ccre_propensity
    tasks/cons30
@@ -22,22 +25,15 @@ GUANinE
    tasks/clinvar_snv
 
 .. toctree::
-    :caption: Getting Started
-    :maxdepth: 2
-
-    installation
-    evaluation
-    scoring
-
-.. toctree::
-    :caption: Leaderboard
+    :caption: the leaderboard
     :maxdepth: 2
 
     full
+    scoring
     submission
 
 .. toctree::
-    :caption: Resources & Contact
+    :caption: resources & misc
     :maxdepth: 2
 
     release-notes
