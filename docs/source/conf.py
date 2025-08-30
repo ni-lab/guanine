@@ -34,7 +34,15 @@ html_theme_options = {
     "nav_links": [
         {
             "title": "Contact",
-            "url": "eyes-robson.github.io",
+            "url": "https://eyes-robson.github.io",
+        },
+        {
+            "title": "v1.0 Release",
+            "url": "release-notes.html",
+        },
+        {
+            "title": "Contributing",
+            "url": "contributing.html",
         },
     ],
      "globaltoc_expand_depth": 1,

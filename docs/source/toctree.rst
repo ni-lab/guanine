@@ -31,10 +31,3 @@ GUANinE
     full
     scoring
     submission
-
-.. toctree::
-    :caption: resources & misc
-    :maxdepth: 2
-
-    release-notes
-    contributing
