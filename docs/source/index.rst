@@ -40,7 +40,26 @@ For a detailed comparison of tasks, consult the `task comparison`_ page.
 
 |
 
-``GUANinE`` is developed and maintained by `eyes robson`_, a PhD candidate under `Nilah Ioannidis`_. To cite ``GUANinE``, 
+``GUANinE`` is developed and maintained by `eyes robson`_, a PhD candidate under `Nilah Ioannidis`_. To cite ``GUANinE``, use the following .bibtex
+
+.. code-block:: 
+    :caption: v1.0 .bibtex
+    
+    @InProceedings{pmlr-v240-robson24a,
+    title = 	 {GUANinE v1.0: Benchmark Datasets for Genomic AI Sequence-to-Function Models},
+    author =       {robson, eyes s. and Ioannidis, Nilah},
+    booktitle = 	 {Proceedings of the 18th Machine Learning in Computational Biology meeting},
+    pages = 	 {250--266},
+    year = 	 {2024},
+    editor = 	 {Knowles, David A. and Mostafavi, Sara},
+    volume = 	 {240},
+    series = 	 {Proceedings of Machine Learning Research},
+    month = 	 {30 Nov--01 Dec},
+    publisher =    {PMLR},
+    pdf = 	 {https://proceedings.mlr.press/v240/robson24a/robson24a.pdf},
+    url = 	 {https://proceedings.mlr.press/v240/robson24a.html}
+    }
+
 
 .. _`task comparison`: ./task_comparison.html
 .. _`dnase_prop`: ./tasks/dnase_propensity.html
