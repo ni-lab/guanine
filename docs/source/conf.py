@@ -38,11 +38,11 @@ html_theme_options = {
         },
         {
             "title": "v1.0 Release",
-            "url": "release-notes.html",
+            "url": "release-notes",
         },
         {
             "title": "Contributing",
-            "url": "contributing.html",
+            "url": "contributing",
         },
     ],
      "globaltoc_expand_depth": 1,
