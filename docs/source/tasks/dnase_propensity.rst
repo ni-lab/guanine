@@ -29,7 +29,7 @@ Additionally, while accessibility suggests sequence function, a model that can p
 Supervised models like DeepSEA, Enformer, Borzoi, etc, are prime examples of models built for ``dnase_prop`` -- their own training data includes the same DHS tracks that make up ``dnase_prop``. To restate, ``dnase_prop`` is *in-distribution* for supervised models trained on ENCODE DHS tracks, and a score below 100 should be understood as having underfit their training data.
 
 
-.. tip:: The most closely related task is `ccre_propensity`_, which builds on top of dnase_prop's measure of accessibility to assess sequence function. 
+.. seealso:: The most closely related task is `ccre_propensity`_, which builds on top of dnase_prop's measure of accessibility to assess sequence function. 
 
 
 build details 
