@@ -30,6 +30,8 @@ html_sidebars = {
     "**": ["localtoc.html"]
 }
 
+html_extra_path = ['robots.txt']
+
 html_theme_options = {
     "nav_links": [
         {
