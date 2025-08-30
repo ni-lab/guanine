@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /submission.html
+Disallow: /contact.html
