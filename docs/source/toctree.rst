@@ -42,4 +42,3 @@ GUANinE
 
     release-notes
     contributing
-    contact
