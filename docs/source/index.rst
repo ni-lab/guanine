@@ -63,11 +63,11 @@ For a detailed comparison of tasks, consult the `task comparison`_ page.
 
 .. _`task comparison`: ./task_comparison.html
 .. _`dnase_prop`: ./tasks/dnase_propensity.html
-.. _`ccre_prop`: ./tasks/dnase_propensity.html
-.. _`cons30`: ./tasks/dnase_propensity.html
-.. _`cons100`: ./tasks/dnase_propensity.html
-.. _`gpra-c`: ./tasks/dnase_propensity.html
-.. _`gpra-d`: ./tasks/dnase_propensity.html
+.. _`ccre_prop`: ./tasks/ccre_propensity.html
+.. _`cons30`: ./tasks/cons30.html
+.. _`cons100`: ./tasks/cons100.html
+.. _`gpra-c`: ./tasks/gpra_c.html
+.. _`gpra-d`: ./tasks/gpra_d.html
 .. _`cadd-snv`: ./tasks/cadd_snv.html
 .. _`clinvar-snv`: ./tasks/clinvar_snv.html
 
