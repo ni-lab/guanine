@@ -28,8 +28,8 @@ root_doc = 'toctree'
 
 html_sidebars = {
     "**": ["localtoc.html",
-           "repo-stats.html",
-           "edit-this-page.html"]
+           "sidebars/repo-stats.html",
+           "sidebars/edit-this-page.html"]
 }
 
 html_context = {
