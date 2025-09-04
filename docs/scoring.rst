@@ -7,13 +7,14 @@ How Models are Scored
 tl;dr
 ------ 
 
-``GUANinE`` employs the robust metric of Spearman's :math:`\rho` (pronounced 'rho') to score model predictions. We recommend using ``stats.spearmanr`` from the ``scipy`` package if you don't have a better implementation.
+``GUANinE`` uses Spearman's :math:`\rho` (pronounced 'rho') to score model predictions. We suggest ``stats.spearmanr`` from the ``scipy`` package if you don't have a better implementation.
 
 .. important::
-    Implementations of :math:`\rho` may handle ties differently. We recommend always adding `'jitter'`_ to your predictions to test for sensitivity to minute perturbation. See below for how-to. 
+    Implementations of :math:`\rho` may handle ties differently. We recommend adding `'jitter'`_ to your predictions to test for sensitivity to minute perturbation. See below for how-to. 
 
 scoring overview
 ----------------
+Speaman's :math:`\rho` is a robustified variant of Pearson's correlation coefficient. Unlike Pearson's R, it is immune to affine (``y = mx + b``) transformations, so there is no need to worry about a 'cutoff' score or whether you power/log/Box-Cox transformed your predictions. Do note that it still presumes *increasing* results -- predictions that are identical will impede its measurement.
 
 By construction, most test set in ``GUANinE`` have private labels, just like in `other AI benchmarks`_ and `Kaggle`_ contests. This prevents 'accidental' cheating by design, and it also helps to extend the life of the benchmark. 
 
@@ -39,12 +40,12 @@ with a ``GUANinE`` task dataset in ``dev_dat``, try the following:
     print(np.round(spear*100., 4)) ## e.g. 74.XXYY
 
 .. note:: 
-    To submit your test set scores for validation, you will to include your development set results, so keep these handy when submitting predictions.  
+    To submit your test set predictions for scoring, you will need to include your development set results, so keep these handy when submitting predictions.  
 
 preventing 'hiccups'
 --------------------
 
-If your model is a classifier, we'd recommend trying the continuous relaxation, e.g. ``model.predict_proba`` for many ``scikit-learn`` modules. This prevents ``spearmanr`` from having to resolve ties, but you can also try the following:
+If your model is a classifier then measurements may be more accurate with a continuous relaxation, e.g. ``model.predict_proba`` for ``scikit-learn`` modules. This prevents ``spearmanr`` from having to resolve ties, but you can also use jitter:
 
 .. code-block::
     :caption: sensitivity analysis with jitter
@@ -57,9 +58,9 @@ If your model is a classifier, we'd recommend trying the continuous relaxation, 
         spear = spearmanr(preds + jitter, y_dev)[0]
         print(spear)
 
-If the code above produces *very* disparate results, e.g. a spearman score of 0.84 --> 0.76 (this happens with VEP), then you should probably not report the higher score as it's an artifact of ``spearmanr``'s tie-handling. We recommend running 30-50 'jitters' and reporting the average to ensure your result is true to your model's underlying performance.
+If the code above produces *very* disparate results, e.g. a spearman score of 0.84 --> 0.76, then you should probably not report the un-jittered score (as it's an artifact of ``spearmanr``'s tie-handling -- this happens with VEP, whose scores we always jitter). We recommend running 30-50 'jitters' and reporting the average result to accurately reflect your model's performance.
 
-Additionally, it's not unlikely that your model will have a few not-a-numbers (``NaN``\ s), especially if it's the combined result of many different predictors. We typically find that replacing ``NaN``\ s with the mean value tends to improve performance the most, but you are welcome to experiment with this on the **development set** before submitting your final results. 
+Finally, your model may have a few not-a-numbers entries (``NaN``\ s), especially if combining many intermediate predictors. We've found replacing ``NaN``\ s with the mean value improves performance the most, but you are welcome to experiment with this on the **development set** before submitting your final predictions. 
 
 .. code-block::
     :caption: replacing NaNs in predictions
@@ -72,7 +73,7 @@ Additionally, it's not unlikely that your model will have a few not-a-numbers (`
     spear, spear_signif = spearmanr(preds, y_dev) # compute your imputed score
 
 
-A small number of constant ties (e.g. ~ 0.01% of the dataset) will not materially impact your ``spearmanr`` score, so don't worry too much about needing to impute and jitter your results. 
+A small number of ties (e.g. ~ 1% of the dataset) will not materially impact your ``spearmanr`` score, so don't worry too much about needing to impute then jitter your results. 
 
 .. _`submission`: ./submission.html
 .. _`other AI Benchmarks`: https://super.gluebenchmark.com/
