@@ -14,7 +14,12 @@ The central dogma suggests that genes exist to produce RNA, which is then used t
 
 Class labels are **ordinal** and range from zero (0, minimal expression) to seventeen (17, maximal expression). Intermediate scores of one to sixteen (1-16) represent increasing levels of gene expression. 
 
-.. seealso:: The sibling task `gpra-c`_ is intended to allow transfer learning research -- but both are sizeable stand-alone tasks. 
+.. seealso:: 
+   The sibling task `gpra-c`_ is intended to allow transfer learning research -- but both are sizeable stand-alone tasks. 
+
+example models
+--------------
+
 ============================  ============
 model                         :math:`\rho`
 ============================  ============
