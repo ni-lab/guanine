@@ -49,6 +49,49 @@ Outside of *clinical* settings, variant interpretation can be immensely more use
   :height: 300
   :align: center
 
+example usage
+-------------
+first, clone the dataset from huggingface (make sure you have ``Git LFS`` installed): ::
+
+    git clone https://huggingface.co/datasets/guanine/clinvar_snv
+
+then, read the file into main memory with your favorite file parser
+
+.. code-block:: python
+   :caption: loading with pandas
+   
+   import pandas as pd
+
+   # there is no training split -- try cadd_snv or external datasets for that
+   dev_dat = pd.read_csv('clinvar_snv/bed/dev/dev.bed', sep='\t')
+   dev_dat.head()
+   
+
+finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
+
+.. code-block:: python
+   :caption: accessing sequences with twobitreader
+
+   from twobitreader import TwoBitFile
+
+   # download from https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.2bit
+   hg38 = TwoBitFile('hg38.2bit')
+
+   CONTEXT_SIZE = 8192 # change for your model, odd numbers simplify centering
+
+   row = dev_dat.iloc[1]
+   ch = row['#chr'] 
+   st = row['end'] - CONTEXT_SIZE//2 # 'start' for centered models, e.g. 1_001 bp 
+   en = row['end'] + CONTEXT_SIZE//2 
+
+   ## if context is even, then variant will be left-center position 
+   ref_seq = hg38[f'chr{ch}'][st:en] ## ref allele at (CONTEXT_SIZE-1)//2 = 4095  
+   alt_seq = ref_seq[:(CONTEXT_SIZE-1)//2] + row['alt'] + ref_seq[(CONTEXT_SIZE-1)//2+1:]
+
+   # optionally convert to uppercase before tokenizing, etc
+   ref_seq, alt_seq = ref_seq.upper(), alt_seq.upper() 
+   assert len(ref_seq)==CONTEXT_SIZE # we recommend checking for truncation
+
 build details 
 -------------
 To harmonize with existing variant interpretation research, clinvar-snv sourced its test set directly from `CADD`_ v1.4 - 1.7, one of the most-publicly-researched deleteriousness (and by correlation, pathogenicity) predictors. ClinVar variants dated from June 2023 were cross-indexed (intersected) with an August 2025 build of ClinVar, ensuring a degree of continuity and assuredness in labels (as a small percentage of variants are reclassified year-to-year). 
