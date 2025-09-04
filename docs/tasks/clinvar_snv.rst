@@ -19,16 +19,16 @@ Class labels are **boolean** and take the form of zero (0, benign) to one (1, pa
 
 example models 
 --------------
-=========================  ============
-model                      :math:`\rho`
-=========================  ============
-AlphaGenome-K562           **93.1695**
-Pangolin                    85.6332
-CADD v1.7 (baseline)        84.6379
-CADD v1.7 (positional)      83.6767
-Naïve VEP (baseline)        76.7449
-GC-content  (baseline)      11.5278
-=========================  ============
+============================  ============
+model                         :math:`\rho`
+============================  ============
+AlphaGenome-K562              **93.1695**
+Pangolin                       85.6332
+CADD v1.7 (baseline)           84.6379
+CADD v1.7 (positional)         83.6767
+Naïve consequence type         76.7449
+GC-content  (baseline)         11.5278
+============================  ============
 
 .. tip::
     models that meet VEP's performance have learned to do more than just detect sequence elements, i.e. they at least partly predict pathogenicity
@@ -130,4 +130,5 @@ Melissa J Landrum, Jennifer M Lee, Mark Benson, et al. ClinVar: improving access
 .. _`phyloP`: https://pmc.ncbi.nlm.nih.gov/articles/PMC2798823/
 .. _`phyloP100way`: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP100way/
 .. _`GUANinE v1.1`: https://github.com/ni-lab/guanine/404
+
 .. _`CADD`: https://cadd.gs.washington.edu/
