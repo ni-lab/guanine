@@ -1,6 +1,6 @@
-=================
+=======================
 Contributing to GUANinE
-=================
+=======================
 
 GUANinE is actively expanding with new datasets, analyses, and community code!
 
