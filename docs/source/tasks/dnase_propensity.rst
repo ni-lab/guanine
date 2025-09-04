@@ -18,6 +18,20 @@ For a DNA sequence to function, it cannot be densely packed away in closed chrom
 
 Class labels are **ordinal**, i.e. represent a ranking, and they range from zero (0, completely inaccessible) to four (4, almost always accessible, at least across measured cell-types). intermediate scores of one to three (1-3) represent some degree of cell-type specific accessibility, although which types of cells is left unsaid. 
 
+example models
+--------------
+=======================  ===============
+model                    :math:`\rho`
+=======================  ===============
+Borzoi                    **70.6892**
+SEI                       **70.4688**
+Enformer (Pre-output)     68.0818
+Beluga                    64.9577
+Enformer                  64.9164
+5-mer LinSVR (baseline)   36.3022
+GC-content (baseline)     20.5533
+=======================  ===============
+
 interpretation
 --------------
 Accessibility is one of the most fundamental features of sequence function, and models scoring well on ``dnase_prop`` likely recognize functional genomic elements (including cis-regulatory elements) in the reference genome. That being said, while it corresponds to the *degree* of cell-type-specific accessibility, it does not indicate *which* cell types a sequence is accessible in, nor does it directly measure a model's ability to predict a specific cell type's DHS track.
@@ -31,6 +45,46 @@ Supervised models like DeepSEA, Enformer, Borzoi, etc, are prime examples of mod
 
 .. seealso:: The most closely related task is `ccre_propensity`_, which builds on top of dnase_prop's measure of accessibility to assess sequence function. 
 
+
+example usage
+-------------
+first, clone the dataset from huggingface (make sure you have ``Git LFS`` installed): ::
+
+    git clone https://huggingface.co/datasets/guanine/dnase_propensity
+
+then, read the file into main memory with your favorite file parser
+
+.. code-block:: python
+   :caption: loading with pandas
+
+   import pandas as pd
+
+   # 1per is the recommended few-shot training split
+   train_dat = pd.read_csv('dnase_propensity/bed/1per/1per.bed', sep='\t')
+   train_dat.head()
+
+finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
+
+.. code-block:: python
+   :caption: accessing sequences with twobitreader
+
+   from twobitreader import TwoBitFile
+
+   # download from https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.2bit
+   hg38 = TwoBitFile('hg38.2bit')
+
+   CONTEXT_SIZE = 8192 # change this for your model
+
+   row = train_dat.iloc[0]
+   ch = row['#chr']
+   st = row['center']-CONTEXT_SIZE//2
+   en = row['center']+CONTEXT_SIZE//2
+
+   seq = hg38[ch][st:en] 
+
+   # optionally convert your sequence to uppercase before tokenizing it, etc
+   seq = seq.upper() 
+   assert len(seq)==CONTEXT_SIZE # we recommend checking for truncation
 
 build details 
 -------------

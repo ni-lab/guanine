@@ -16,10 +16,61 @@ Class labels are **ordinal** and range from zero (0, minimal expression) to seve
 
 .. seealso:: The sibling task `gpra-d`_ is intended to allow transfer learning research -- but both are sizeable stand-alone tasks. 
 
+===========================  ============
+model                          gpra-c
+===========================  ============
+T5 (baseline)                 **84.6738**
+nt-v2-500m                    72.6726
+Evo2_1B_base                  72.6487
+nt-v2-250m                    72.436
+Caduceus-PS                   72.4355
+5-mer LinSVR (baseline)       36.3022
+GC-content (baseline)         20.5533
+===========================  ============
+
 interpretation
 --------------
 
 ``gpra-c`` is a difficult, but insightful task. While its dynamic range (the typical upper and lower bound of scores) is slightly constrained -- it nonetheless produces rankings that correlate to model quality and other tasks (i.e. the newest, fanciest models increasingly do well). 
+
+example usage
+-------------
+first, clone the dataset from huggingface (make sure you have ``Git LFS`` installed): ::
+
+    git clone https://huggingface.co/datasets/guanine/gpra_c
+
+then, read the file into main memory with your favorite file parser
+
+.. code-block:: python
+   :caption: loading with pandas
+
+   import pandas as pd
+
+   # 1per is the recommended few-shot training split
+   # there are no bed files for GPRA, as it is not in a reference genome
+   train_dat = pd.read_csv('gpra_c/1per/1per.csv', sep='\t')
+   train_dat.head()
+
+finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
+
+.. code-block:: python
+   :caption: accessing sequences with twobitreader
+
+   from twobitreader import TwoBitFile
+
+   # download from https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.2bit
+   hg38 = TwoBitFile('hg38.2bit')
+
+   CONTEXT_SIZE = 8192 # change this for your model
+
+   row = train_dat.iloc[0]
+   seq = hg38[ch][st:en] 
+
+   # we recommend pre/appending a fixed scaffold for large context models, e.g.
+   seq = scaf_a + seq + scaf_b
+
+   assert len(seq)==CONTEXT_SIZE # we recommend checking for truncation
+
 
 build details 
 -------------

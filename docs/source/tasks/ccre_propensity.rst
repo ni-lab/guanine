@@ -23,6 +23,23 @@ Class labels are **ordinal** and range from zero (0, no epigenetic signal) to fo
 
 .. warning:: Models trained to predict ccre_prop may not be well-behaved on inaccessible sequences, since only DHS sequences are seen during training. To use the predictions of ccre_prop-trained models, one should first condition their output on the result of ``dnase_propensity`` models or similar measures of accessibility. 
 
+example models 
+--------------
+======================== ============
+model                    :math:`\rho`
+======================== ============
+Borzoi                    **57.6904**
+Basenji2                   56.4568
+SEI                        56.3547
+Enformer                   55.3816
+Enformer (Pre-output)      55.0775
+5-mer LinSVR (baseline)    36.3022
+GC-content (baseline)      20.5533
+======================== ============
+
+.. note:: 
+    the scores shown here are **averaged** across individual subtasks
+
 interpretation
 --------------
 ``ccre_prop`` is a core indicator of sequence function, and models scoring well on it must at least recognize, if not comprehend, regulatory functional elements in the reference genome. That said, while ``ccre_propensity`` corresponds to the *degree* of cell-type-specific epigenetic signal, it does not indicate *which* cell types a sequence is functional in, nor can it measure a model's ability to predict any specific cell type's H3K4me3, H3K27ac, CTCF, or DHS tracks.
@@ -35,6 +52,48 @@ Supervised models like DeepSEA, Enformer, Borzoi, etc, are prime examples of mod
 
 
 .. tip:: The most closely related task is `dnase_propensity`_, which measures the accessibility ingredient of Cis-Regulatory Element functionality (by definition, `see ENCODE v3`_). One can understand the difference between ``dnase_propensity`` and ``ccre-dnase`` to be the likelihood of a sequence :math:`X` being accessible versus its degree of accessibility (conditioned on being accessible), although this is a loose relationship. 
+
+
+example usage
+-------------
+first, clone the dataset from huggingface (make sure you have ``Git LFS`` installed): ::
+
+    git clone https://huggingface.co/datasets/guanine/ccre_propensity
+
+then, read the file into main memory with your favorite file parser
+
+.. code-block:: python
+   :caption: loading with pandas
+
+   import pandas as pd
+
+   # 1per is the recommended few-shot training split
+   train_dat = pd.read_csv('ccre_propensity/bed/1per/1per.bed', sep='\t')
+   train_dat.head()
+
+finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
+
+.. code-block:: python
+   :caption: accessing sequences with twobitreader
+
+   from twobitreader import TwoBitFile
+
+   # download from https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.2bit
+   hg38 = TwoBitFile('hg38.2bit')
+
+   CONTEXT_SIZE = 8192 # change this for your model
+
+   row = train_dat.iloc[0]
+   ch = row['#chr']
+   st = row['center']-CONTEXT_SIZE//2
+   en = row['center']+CONTEXT_SIZE//2
+   ta = row['task'] ## split by task, in case you don't wish to multitask
+
+   seq = hg38[ch][st:en] 
+
+   # optionally convert your sequence to uppercase before tokenizing it, etc
+   seq = seq.upper() 
+   assert len(seq)==CONTEXT_SIZE # we recommend checking for truncation
 
 build details 
 -------------

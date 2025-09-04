@@ -16,7 +16,22 @@ The approximate statistical model is :math:`y_{\{X_1 \ldots X_512 \}} \sim \frac
 
 Class labels are **ordinal** and range from zero (0, unconserved) to twenty-four (24, highly conserved). Intermediate scores represent moderate amounts of average bp-level sequence conservation, possibly at a gene boundaries or less-conserved sequence. 
 
-**warning**: Conservation is deeply connected to deleteriousness and pathogenicity, but this task, while helpful in identifying functional elements, intrinsically ignores individual variation because it measures deleteriousness at evolutionary scale.
+.. note:: 
+    Conservation is deeply connected to deleteriousness and pathogenicity, but this task, while helpful in identifying functional elements, intrinsically ignores individual variation because it measures deleteriousness at evolutionary scale.
+
+example models 
+--------------
+======================= ============
+model                   :math:`\rho`
+======================= ============
+nt-v2-500m               **75.5842**
+Enformer (Pre-output)    74.6815
+Enformer                 74.4358
+Caduceus-PS              74.3749
+Evo2_7B_base             74.0702
+5-mer LinSVR (baseline)  36.3022
+GC-content (baseline)    20.5533
+======================= ============
 
 interpretation
 --------------
@@ -33,6 +48,48 @@ The most closely related task is cons100 (link), which is a similar task but wit
 |
 
 Finally, one can understand the difference between cons30 and cons100 to represent some indicate degree of overfitting/specialization to primate or mammalian genomes, as the former is more evolutionarily proximal to humans. Enformer, Borzoi, et al, having been trained on both human and mouse genomes, tend to perform comparatively well on cons30 partly because of this specialization. 
+
+
+example usage
+-------------
+first, clone the dataset from huggingface (make sure you have ``Git LFS`` installed): ::
+
+    git clone https://huggingface.co/datasets/guanine/cons30
+
+then, read the file into main memory with your favorite file parser
+
+.. code-block:: python
+   :caption: loading with pandas
+
+   import pandas as pd
+
+   # 1per is the recommended few-shot training split
+   train_dat = pd.read_csv('cons30/bed/1per/1per.bed', sep='\t')
+   train_dat.head()
+
+finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
+
+.. code-block:: python
+   :caption: accessing sequences with twobitreader
+
+   from twobitreader import TwoBitFile
+
+   # download from https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.2bit
+   hg38 = TwoBitFile('hg38.2bit')
+
+   CONTEXT_SIZE = 8192 # change this for your model
+
+   row = train_dat.iloc[0]
+   ch = row['#chr'] ## fun fact -- conservation varies greatly by chr size 
+   st = row['center']-CONTEXT_SIZE//2
+   en = row['center']+CONTEXT_SIZE//2
+
+   seq = hg38[ch][st:en] 
+
+   # optionally convert your sequence to uppercase before tokenizing it, etc
+   seq = seq.upper() 
+   assert len(seq)==CONTEXT_SIZE # we recommend checking for truncation
+
 
 build details 
 -------------
