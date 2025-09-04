@@ -38,7 +38,7 @@ interpretation
 --------------
 Variants and variant call files (VCFs) represent one of the most portable, sparsified representations of individual genotypes -- this convenience, along with the historic emphasis on linear, non-epistatic models (including GWAS), has led to a single-variant-centric approach to genetic disease interpretation. 
 
-Of course, no genotype exists outside of its environment (life history, nutrition, social determinants of health, etc), so it should be recognized that variant interpretation techniques *in the clinic* are mostly useful in cases of severe, highly penetrant, early-onset conditions and disorders, e.g. the 20th-century use of genetic testing and counseling for carriers of `Tay-sachs disease`_. 
+Of course, no genotype exists outside of its environment (life history, nutrition, social determinants of health, etc), so it should be recognized that models for variant interpretation *in the clinic* are primarily useful in cases of severe, highly penetrant, early-onset conditions and disorders, e.g. the 20th-century use of genetic testing and counseling for carriers of `Tay-sachs disease`_. 
 
 Outside of *clinical* settings, variant interpretation can be immensely more useful for identifying potentially causal pathways, mechanisms, and druggability -- a key pharmaceutical research endeavor.  
 
