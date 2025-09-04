@@ -9,38 +9,18 @@
   \_____| \____//_/    \_\|_| \_||_||_| |_||______|
 ```
 
-Read the GUANinE paper !! 
+Browse the GUANinE documentation for the most up-to-date guides, datasheets, and more!
+
+[https://guanine.readthedocs.io/en/latest/](https://guanine.readthedocs.io/en/latest/)
+
+
+
+Read the full writeup in our GUANinE v1.0 paper ~ 
 
 [https://proceedings.mlr.press/v240/robson24a/robson24a.pdf](https://proceedings.mlr.press/v240/robson24a/robson24a.pdf)
 
-
-```
-@InProceedings{pmlr-v240-robson24a,
-  title = 	 {GUANinE v1.0: Benchmark Datasets for Genomic AI Sequence-to-Function Models},
-  author =       {robson, eyes s. and Ioannidis, Nilah},
-  booktitle = 	 {Proceedings of the 18th Machine Learning in Computational Biology meeting},
-  pages = 	 {250--266},
-  year = 	 {2024},
-  editor = 	 {Knowles, David A. and Mostafavi, Sara},
-  volume = 	 {240},
-  series = 	 {Proceedings of Machine Learning Research},
-  month = 	 {30 Nov--01 Dec},
-  publisher =    {PMLR},
-  pdf = 	 {https://proceedings.mlr.press/v240/robson24a/robson24a.pdf},
-  url = 	 {https://proceedings.mlr.press/v240/robson24a.html},
-  abstract = 	 {Computational genomics increasingly relies on machine learning methods for genome interpretation, and the recent adoption of neural sequence-to-function models highlights the need for rigorous model specification and controlled evaluation, problems familiar to other fields of AI. Research strategies that have greatly benefited other fields — including benchmarking, auditing, and algorithmic fairness — are also needed to advance the field of genomic AI and to facilitate model development. Here we propose a genomic AI benchmark, GUANinE, for evaluating model generalization across a number of distinct genomic tasks. Compared to existing task formulations in computational genomics, GUANinE is large-scale, de-noised, and suitable for evaluating pretrained models. GUANinE v1.0 primarily focuses on functional genomics tasks such as functional element annotation and gene expression prediction, and it also draws upon connections to evolutionary biology through sequence conservation tasks. The current GUANinE tasks provide insight into the performance of existing genomic AI models and non-neural baselines, with opportunities to be refined, revisited, and broadened as the field matures. Finally, the GUANinE benchmark allows us to evaluate new self-supervised T5 models and explore the tradeoffs between tokenization and model performance, while showcasing the potential for self-supervision to complement existing pretraining procedures.}
-}
-```
-                                                
-### Under Development
-
-Our temporary submission method is via uploading test-set predictions to a Google form: [https://forms.gle/NhYSwH3Rjn3ShRzQ7](https://forms.gle/NhYSwH3Rjn3ShRzQ7)
-
-We will be launching an automatic evaluation server at a later date
-
-
 ## Intro
-The GUANinE benchmark for genomic AI uses the [Hugging Face](https://huggingface.co/) API for dataset loading. **We are in the process of creating dataloading scripts for each dataset, so at the moment you'll need to clone the task repository and manually load the data.** GUANinE uses predetermined splits for each task, with private test set labels for our leaderboard (Coming soon!).  
+The GUANinE benchmark for genomic AI uses the [Hugging Face](https://huggingface.co/) API for dataset loading. GUANinE uses predetermined splits for each task, with private test set labels for our leaderboard (coming with v1.0.8!).  
 
 See the available datasets here: [https://huggingface.co/guanine](https://huggingface.co/guanine) 
 
@@ -82,9 +62,34 @@ sequence = hg38[chr][start:end]
 print(chr, center, train_bed.iloc[0]['y'], sequence)
 ## chr2 205691090 1 TAACCAGTAAC...
 ```
+
+### Submissions
+
+Our temporary submission method is via uploading test-set predictions to a Google form: [https://forms.gle/NhYSwH3Rjn3ShRzQ7](https://forms.gle/NhYSwH3Rjn3ShRzQ7)
+
+We will be launching an automatic evaluation server at a later date
+
+To cite:
+```
+@InProceedings{pmlr-v240-robson24a,
+  title = 	 {GUANinE v1.0: Benchmark Datasets for Genomic AI Sequence-to-Function Models},
+  author =       {robson, eyes s. and Ioannidis, Nilah},
+  booktitle = 	 {Proceedings of the 18th Machine Learning in Computational Biology meeting},
+  pages = 	 {250--266},
+  year = 	 {2024},
+  editor = 	 {Knowles, David A. and Mostafavi, Sara},
+  volume = 	 {240},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {30 Nov--01 Dec},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v240/robson24a/robson24a.pdf},
+  url = 	 {https://proceedings.mlr.press/v240/robson24a.html}
+}
+```
+
 ## Baseline Model Usage 
 
-We are in the process of uploading our T5 baseline models, pretrained and unpretrained. For models that are not pretrained with span corruption (language modeling), the default branch of each model is our dnase-propensity task. 
+We are still in the process of converting our old T5 baseline models, pretrained and fine-tuned. For models that are not pretrained with span corruption (language modeling), the default branch of each model is our dnase-propensity task. 
 
 ```python 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
