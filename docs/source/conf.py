@@ -27,7 +27,15 @@ html_static_path = ['_static']
 root_doc = 'toctree'
 
 html_sidebars = {
-    "**": ["localtoc.html"]
+    "**": ["localtoc.html",
+           "repo-stats.html",
+           "edit-this-page.html"]
+}
+
+html_context = {
+        "source_type": "github",
+        "source_user": "ni-lab",
+        "source_repo": "guanine"
 }
 
 html_extra_path = ['robots.txt']
@@ -51,5 +59,6 @@ html_theme_options = {
      "toctree_collapse": False,
      "light_logo": "_static/guanine_logo.png",
      "dark_logo": "_static/guanine_logo_dark.png",
+     "github_url": "https://github.com/ni-lab/guanine",
 }
 
