@@ -6,18 +6,20 @@ cons30
 
 tl;dr
 ------ 
-cons30 (aka cons30_binned) is a sequence conservation annotation task, which implicitly asks a model to identify (ultra-)conserved elements under negative selection (a fantastic proxy for sequence function). Conservation here is defined as a 512-bp region-average of the `phyloP30way`_ score, which is built on multiple sequence alignments (MSAs) of mammalian, especially primate, genomes to the human reference genome.  This gives the task a relaxed representation of conserved elements, as it's far more continuous than a boolean conserved/unconserved label. Human accelerated regions were removed from the task by pruning noisy regions (those with high coefficients of variation). 
 
-|
+cons30 (aka cons30_binned) is a sequence conservation annotation task, which asks a model to identify (ultra-)conserved elements that have evolved under negative selection. Regions that have experienced selection are almost certainly functional (or close to regions that are).
 
-The approximate statistical model is :math:`y_{\{X_1 \ldots X_512 \}} \sim \frac{1}{512}\sum_{i=1..512} p(X_i)` for a tendency to evolutionary stasis :math:`p(X_i)` (higher is more conserved, lower is rapidly changing). A rank transformation is applied to quantize (and rectify) the :math:`y` values, with each bin corresponding to :math:`\sim 4\%` of sequences.
+overview
+--------
 
-|
+Conservation signal, typically measured as the proportion of bases that are (near-)constant in a multi-organismal multiple sequence alignment, is a fantastic proxy for sequence function -- and doesn't require costly experimental annotation. Here, conservation signal is defined as region-level average across 512 base pairs using the single-bp-resolution `phyloP100way`_ score, which is built on MSAs of mammalian genomes, mostly primate, to the human reference genome (spanning speciation from ~170 MYA to present).  This gives the task a relaxed representation of conserved elements, as it's far more continuous than a boolean conserved/unconserved label. 
+
+The approximate statistical model is :math:`y_{\{X_1 \ldots X_{512} \}} \sim \frac{1}{512}\sum_{i=1..512} p(X_i)` for a tendency to evolutionary stasis :math:`p(X_i)` (higher is more conserved, lower is rapidly changing). 
 
 Class labels are **ordinal** and range from zero (0, unconserved) to twenty-four (24, highly conserved). Intermediate scores represent moderate amounts of average bp-level sequence conservation, possibly at a gene boundaries or less-conserved sequence. 
 
 .. note:: 
-    Conservation is deeply connected to deleteriousness and pathogenicity, but this task, while helpful in identifying functional elements, intrinsically ignores individual variation because it measures deleteriousness at evolutionary scale.
+    Conservation is deeply connected to deleteriousness and pathogenicity, but this task, while helpful in identifying functional elements, ignores individual variation because it measures deleteriousness at evolutionary scale. Mutational 'constraint' is a complementary metric that uses population-level data to emulate conservation through observed individual variation. 
 
 example models 
 --------------
@@ -95,8 +97,9 @@ build details
 -------------
 Per-bp-level evolutionary stasis (negative selection) is approximately formulated as :math:`p(X_i) \propto  \Phi^{-1}(1 - h_{MSA}(X_{i}))` with :math:`\Phi^{-1}` the gaussian quantile function and :math:`h_MSA` the *expected* rate of evolutionary substitution (0-1) for genome sequence :math:`X` at position :math:`i`. As an example, if position :math:`i` is mostly identical across an MSA, one could *expect* position :math:`i` to have a low value of :math:`h_{MSA}`, indicating strong negative selection, and thus a highly positive :math:`p(X_i)`. One should consult the original `phyloP`_ paper for a non-handwavey definition. 
 
-|
+A rank transformation is applied to quantize (and rectify) the :math:`y` values, with each bin corresponding to :math:`\sim 4\%` of sequences.
 
+Human accelerated regions were removed from the task before quantization by pruning noisy regions (those with high coefficients of variation).
 
 controlled factors
 -------------------
