@@ -45,7 +45,7 @@ Language models like DNABERT-2, Nucleotide Transformer, Caduceus, etc are ideal 
 
 |
 
-The most closely related task is cons100 (link), which is a similar task but with the input MSAs being constructed across 100 vertebrate genomes, not just 30 mammalian genomes. 
+The most closely related task is `cons100`_, which is a similar task but with the input MSAs being constructed across 100 vertebrate genomes, not just 30 mammalian genomes. 
 
 |
 
@@ -119,7 +119,7 @@ Pollard KS, Hubisz MJ, Siepel A. Detection of non-neutral substitution rates on 
 
 
 |
-
+.. _`cons100`: ./cons100.html
 .. _`Waters et al. (2021)`: https://pmc.ncbi.nlm.nih.gov/articles/PMC8609325/
 .. _`McVicker et al. (2009)`: https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1000471
 .. _`phyloP`: https://pmc.ncbi.nlm.nih.gov/articles/PMC2798823/

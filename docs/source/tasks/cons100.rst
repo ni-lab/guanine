@@ -41,7 +41,7 @@ With the advent of the first human and non-human reference genomes, multiple seq
 Language models like DNABERT-2, Nucleotide Transformer, Caduceus, etc are ideal for modeling conservation tasks like cons100, since the implicit cloze-completion behavior of language modeling requires some portion of the sequence to be predictable, i.e. static and unchanging. Track-supervised models like DeepSEA, Enformer, Borzoi, etc, also tend to perform well -- especially with higher context sizes -- due both to a tacit comprehension of local regulatory grammar as well as so much of negative selection being *contextual*, e.g. proximity of a "conserved" region to an actually loss-of-function intolerant ultra-conserved gene or *micro*\chromosomes having fewer intergenic regions, complicating recombination. For more details (as well as limitations to phyloP), one should consult `McVicker et al. (2009)`_ and also perhaps review vertebrate chromosomal evolution, e.g. `Waters et al. (2021)`_. 
 
 
-The most closely related task is cons30 (link), which is a similar task built with smaller, more human-proximal (evolutionarily) genomes.
+The most closely related task is `cons30`_, which is a similar task built with smaller, more human-proximal (evolutionarily) genomes.
 
 
 Finally, one can understand the difference between cons30 and cons100 to represent some indicate degree of overfitting/specialization to primate or mammalian genomes, as the former is more evolutionarily proximal to humans. Enformer, Borzoi, et al, having been trained on both human and mouse genomes, tend to perform comparatively poorly on cons100 partly because of this specialization. 
@@ -113,6 +113,7 @@ Pollard KS, Hubisz MJ, Siepel A. Detection of non-neutral substitution rates on 
 
 |
 
+.. _`cons30`: ./cons30.html
 .. _`Waters et al. (2021)`: https://pmc.ncbi.nlm.nih.gov/articles/PMC8609325/
 .. _`McVicker et al. (2009)`: https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1000471
 .. _`phyloP`: https://pmc.ncbi.nlm.nih.gov/articles/PMC2798823/
