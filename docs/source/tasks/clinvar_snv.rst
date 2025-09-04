@@ -6,16 +6,48 @@ clinvar-snv
 
 tl;dr
 ------ 
-clinvar-snv (aka cadd-clinvar-snv) is a single-nucleotide variant pathogenicity interpretation task, where models attempt to estimate the likelihood a reference-divergent sequence (i.e. a real, human haplotype) is implicated in a known disease (either germline or somatic). clinvar-snv is built on the eponymous ClinVar database, an American oft-cited clinical repository of (historically manual) variant interpretations. Due to intractable combination of longstanding structural issues in health equity, especially with respect to `diversity in genomics`_, and fundamental challenges in sampling size for manually curated (and corroborated) data, GUANinE intentionally declines to provide a training dataset based on ClinVar variants, and instead suggests constructing models by other means, perhaps by using GUANinE's deleteriousness task, cadd-snv (link), as a training proxy. 
+``clinvar-snv`` (aka cadd-clinvar-snv) is a single-nucleotide variant pathogenicity interpretation task, where models attempt to estimate the likelihood a reference-divergent sequence (i.e. a real, human haplotype) is implicated in a known disease (either germline or somatic). 
+
+overview
+--------
+
+``clinvar-snv`` is built on the eponymous ClinVar database, an oft-cited American clinical repository of (historically manual) variant interpretations. Due to intractable combination of longstanding structural issues in health equity, especially with respect to `diversity in genomics`_, and fundamental challenges in sampling size for manually curated (and corroborated) data, GUANinE intentionally declines to provide a training dataset based on ClinVar variants, and instead suggests constructing models by other means, perhaps by using GUANinE's deleteriousness task, cadd-snv (link), as a training proxy. 
 
 The approximate statistical model is :math:`y_{X} \sim \lceil p(X) - p(\tilde{X}) - e\rceil` for  :math:`p` a likelihood of disease incidence over sequences :math:`X` (reference) and :math:`\tilde{X}` (variant); :math:`e` corresponds to a presumable threshold of detectability in terms of severity, medicalization, or social awareness. The ceiling function correspondingly transforms truly/nearly benign divergences from reference (as well as possibly protective effects) to the class of zero, while variants with pathogenic effects exceeding :math:`e` will be rounded upwards to one. 
 
 Class labels are **boolean** and take the form of zero (0, benign) to one (1, pathogenic). Note that this dichotomy, while not entirely false, does not address fundamental issues about the nature of pathogenicity, e.g. variant penetrance, disease incidence, environmental interactions, and homozygosity and its role in allele dominance. 
 
+example models 
+--------------
+=========================  ============
+model                      :math:`\rho`
+=========================  ============
+AlphaGenome-K562           **93.1695**
+Pangolin                    85.6332
+CADD v1.7 (baseline)        84.6379
+CADD v1.7 (positional)      83.6767
+Naïve VEP (baseline)        76.7449
+GC-content  (baseline)      11.5278
+=========================  ============
+
+.. tip::
+    models that meet VEP's performance have learned to do more than just detect sequence elements, i.e. they at least partly predict pathogenicity
+
+
 interpretation
 --------------
-Variants and variant call files (VCFs) represent one of the most portable, sparsified representations of individual genotypes -- this convenience, along with the historic emphasis on linear, non-epistatic models (including GWAS), has led to a single-variant-centric approach to genetic disease interpretation. Of course, no genotype exists outside of its environment (life history, nutrition, social determinants of health, etc), so it should be recognized that variant interpretation techniques are most *clinically* useful in severe, highly penetrant, early-onset conditions and disorders, e.g. the 20th-century use of genetic testing and counseling for prospective couples who were carriers of `Tay-sachs disease`_. Outside of *clinical* settings, variant interpretation can be immensely useful for identifying potentially causal pathways, mechanisms, and druggability -- a key pharmaceutical research endeavor.  
+Variants and variant call files (VCFs) represent one of the most portable, sparsified representations of individual genotypes -- this convenience, along with the historic emphasis on linear, non-epistatic models (including GWAS), has led to a single-variant-centric approach to genetic disease interpretation. 
 
+Of course, no genotype exists outside of its environment (life history, nutrition, social determinants of health, etc), so it should be recognized that variant interpretation techniques *in the clinic* are mostly useful in cases of severe, highly penetrant, early-onset conditions and disorders, e.g. the 20th-century use of genetic testing and counseling for carriers of `Tay-sachs disease`_. 
+
+Outside of *clinical* settings, variant interpretation can be immensely more useful for identifying potentially causal pathways, mechanisms, and druggability -- a key pharmaceutical research endeavor.  
+
+.. caution::
+    Authors frequently claim their model can 'accurately predict' pathogenicity, but it's worth investigating how they construct their evaluation set. ``GUANinE``, like **every** dataset built on ClinVar, first and foremost measures models' ability to detect specific sequence elements, e.g. splice sites, before measuring pathogenicity. For reference, ``GUANinE``'s ``clinvar-snv`` task has a typical imbalance of variants, as seen below:
+
+.. image:: ../_static/images/clinvar_class_imbalance.png
+  :height: 300
+  :align: center
 
 build details 
 -------------
