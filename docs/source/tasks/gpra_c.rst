@@ -16,8 +16,11 @@ Class labels are **ordinal** and range from zero (0, minimal expression) to seve
 
 .. seealso:: The sibling task `gpra-d`_ is intended to allow transfer learning research -- but both are sizeable stand-alone tasks. 
 
+example models
+--------------
+
 ===========================  ============
-model                          gpra-c
+model                         :math:`\rho`
 ===========================  ============
 T5 (baseline)                 **84.6738**
 nt-v2-500m                    72.6726
@@ -48,26 +51,21 @@ then, read the file into main memory with your favorite file parser
 
    # 1per is the recommended few-shot training split
    # there are no bed files for GPRA, as it is not in a reference genome
-   train_dat = pd.read_csv('gpra_c/1per/1per.csv', sep='\t')
+   train_dat = pd.read_csv('gpra_c/1per/1per.csv', sep=',') # csv
    train_dat.head()
 
 finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
 
 .. code-block:: python
-   :caption: accessing sequences with twobitreader
-
-   from twobitreader import TwoBitFile
-
-   # download from https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.2bit
-   hg38 = TwoBitFile('hg38.2bit')
+   :caption: sequences are directly available
 
    CONTEXT_SIZE = 8192 # change this for your model
 
    row = train_dat.iloc[0]
-   seq = hg38[ch][st:en] 
+   seq = row['seq'] 
 
-   # we recommend pre/appending a fixed scaffold for large context models, e.g.
-   seq = scaf_a + seq + scaf_b
+   # we recommend pre/appending a yeast scaffold for large context models, e.g.
+   seq = scaf_a + seq + scaf_b 
 
    assert len(seq)==CONTEXT_SIZE # we recommend checking for truncation
 

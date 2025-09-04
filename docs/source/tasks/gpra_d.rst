@@ -15,11 +15,56 @@ The central dogma suggests that genes exist to produce RNA, which is then used t
 Class labels are **ordinal** and range from zero (0, minimal expression) to seventeen (17, maximal expression). Intermediate scores of one to sixteen (1-16) represent increasing levels of gene expression. 
 
 .. seealso:: The sibling task `gpra-c`_ is intended to allow transfer learning research -- but both are sizeable stand-alone tasks. 
+============================  ============
+model                         :math:`\rho`
+============================  ============
+T5 (baseline)                  **88.5912**
+nt-v2-500m                     76.5765
+Evo2_1B_base                   76.3823
+nt-v2-250m                     76.2963
+Caduceus-PS                    76.0289
+5-mer LinSVR (baseline)        36.3022
+GC-content (baseline)          20.5533
+============================  ============
 
 interpretation
 --------------
 
 ``gpra-d`` is an insightful task with across-the-board higher performance nubmers compared to ``gpra-c`` (typically a consistent +4 delta). While its dynamic range (the typical upper and lower bound of scores) is slightly constrained -- it nonetheless produces rankings that correlate to model quality and other tasks (i.e. the newest, fanciest models increasingly do well). 
+
+example usage
+-------------
+first, clone the dataset from huggingface (make sure you have ``Git LFS`` installed): ::
+
+    git clone https://huggingface.co/datasets/guanine/gpra_d
+
+then, read the file into main memory with your favorite file parser
+
+.. code-block:: python
+   :caption: loading with pandas
+
+   import pandas as pd
+
+   # 1per is the recommended few-shot training split
+   # there are no bed files for GPRA, as it is not in a reference genome
+   train_dat = pd.read_csv('gpra_d/1per/1per.csv', sep=',') # csv
+   train_dat.head()
+
+finally, splice the sequence out with your preferred genome reader, e.g. ``twobitreader``
+
+.. code-block:: python
+   :caption: sequences are directly available
+
+   CONTEXT_SIZE = 8192 # change this for your model
+
+   row = train_dat.iloc[0]
+   seq = row['seq'] 
+
+   # we recommend pre/appending a yeast scaffold for large context models, e.g.
+   seq = scaf_a + seq + scaf_b 
+
+   assert len(seq)==CONTEXT_SIZE # we recommend checking for truncation
+
 
 build details 
 -------------
