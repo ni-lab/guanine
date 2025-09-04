@@ -9,7 +9,7 @@
 project = 'guanine'
 copyright = '2025, eyes robson'
 author = 'eyes robson'
-release = '1.0'
+release = '1.0.5'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -47,7 +47,7 @@ html_theme_options = {
             "url": "https://eyes-robson.github.io",
         },
         {
-            "title": "v1.0 Release",
+            "title": "v1.0.5 Release",
             "url": "release-notes",
         },
         {

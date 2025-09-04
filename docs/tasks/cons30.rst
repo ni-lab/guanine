@@ -12,7 +12,7 @@ cons30 (aka cons30_binned) is a sequence conservation annotation task, which ask
 overview
 --------
 
-Conservation signal, typically measured as the proportion of bases that are (near-)constant in a multi-organismal multiple sequence alignment, is a fantastic proxy for sequence function -- and doesn't require costly experimental annotation. Here, conservation signal is defined as region-level average across 512 base pairs using the single-bp-resolution `phyloP100way`_ score, which is built on MSAs of mammalian genomes, mostly primate, to the human reference genome (spanning speciation from ~170 MYA to present).  This gives the task a relaxed representation of conserved elements, as it's far more continuous than a boolean conserved/unconserved label. 
+Conservation signal, typically measured as the proportion of bases that are (near-)constant in a multi-organismal multiple sequence alignment, is a fantastic proxy for sequence function -- and doesn't require costly experimental annotation. Here, conservation signal is defined as region-level average across 512 base pairs using the single-bp-resolution `phyloP30way`_ score, which is built on MSAs of mammalian genomes, mostly primate, to the human reference genome (spanning speciation from ~170 MYA to present).  This gives the task a relaxed representation of conserved elements, as it's far more continuous than a boolean conserved/unconserved label. 
 
 The approximate statistical model is :math:`y_{\{X_1 \ldots X_{512} \}} \sim \frac{1}{512}\sum_{i=1..512} p(X_i)` for a tendency to evolutionary stasis :math:`p(X_i)` (higher is more conserved, lower is rapidly changing). 
 
@@ -117,8 +117,8 @@ original citation
 
 Pollard KS, Hubisz MJ, Siepel A. Detection of non-neutral substitution rates on mammalian phylogenies. Genome Res. 2010 Jan;20(1):110-21. (http://genome.cshlp.org/content/20/1/110.long)
 
-
 |
+
 .. _`cons100`: ./cons100.html
 .. _`Waters et al. (2021)`: https://pmc.ncbi.nlm.nih.gov/articles/PMC8609325/
 .. _`McVicker et al. (2009)`: https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1000471

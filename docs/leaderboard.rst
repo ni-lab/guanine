@@ -1,5 +1,7 @@
+:orphan:
+
 ===================
 Current Leaderboard
 ===================
-LAST UPDATE: 1 Sep 2025
+LAST UPDATE: TBD 2025
 -------------------------
