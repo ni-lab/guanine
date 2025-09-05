@@ -20,9 +20,9 @@ Most users can simply cite the `GUANinE v1.0`_ manuscript directly when using, r
 Remixing/Publishing Tasks
 -------------------------
 
-However, as many datasets are substantially derived from existing sources, and you should always cite the original creators if you are basing an analysis off of the ``GUANinE`` versions (i.e. more than reporting scores). 
+However, as many datasets are substantially derived from existing sources, you should always cite the original creators if you are using them for more than just a score for a publication (e.g. basing an in-depth analysis or model on a specific dataset). 
 
-If you modify or **redistribute** the tasks (including models built on tasks) in ``GUANinE``, you will need to abide by the terms of the original licenses:
+If you modify or **redistribute** the tasks (including models built on tasks) in ``GUANinE``, be sure to abide by the terms of the original licenses:
 
 
 - `dnase and ccre (CC-BY-4.0)`_
