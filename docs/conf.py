@@ -14,7 +14,7 @@ release = '1.0.5'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ["sphinx_design"]
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -53,6 +53,10 @@ html_theme_options = {
         {
             "title": "Contributing",
             "url": "contributing",
+        },
+        {
+            "title": "Citing GUANinE",
+            "url": "license"
         },
     ],
      "globaltoc_expand_depth": 1,
