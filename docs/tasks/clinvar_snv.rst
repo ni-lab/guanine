@@ -22,11 +22,13 @@ example models
 ============================  ============
 model                         :math:`\rho`
 ============================  ============
-AlphaGenome-K562              **93.1695**
+SEI-AG + Pangolin             **95.1299**
+AlphaGenome-K562               93.1695
 Pangolin                       85.6332
 CADD v1.7 (baseline)           84.6379
 CADD v1.7 (positional)         83.6767
 Naïve consequence type         76.7449
+SEI-AG                         50.8500
 GC-content  (baseline)         11.5278
 ============================  ============
 
@@ -132,3 +134,4 @@ Melissa J Landrum, Jennifer M Lee, Mark Benson, et al. ClinVar: improving access
 .. _`GUANinE v1.1`: https://github.com/ni-lab/guanine/404
 
 .. _`CADD`: https://cadd.gs.washington.edu/
+
