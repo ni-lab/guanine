@@ -1,3 +1,8 @@
+
+.. admonition:: Pre-release build
+    
+    The clinvar-snv datasets are stable (and unlikely to *materially* change before their full release in v1.1), however, this documentation page is still under development.   
+
 ======================
 clinvar-snv
 ======================
