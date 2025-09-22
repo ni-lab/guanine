@@ -44,6 +44,9 @@ Pertubration tries to figure out what makes a sequence 'tick' by poking or prodd
  `cadd-snv`_
   \*THE\* synthetic variant interpretation task, and one of the best training datasets for SNV models to-date. If you want to predict deleteriousness or rare variants in humans, start here. 
 
+`cadd-indel`_
+  Similar to cadd-snv, but focusing on short insertion-deletetion variants (i.e. non-substitutions). 
+
  `clinvar-snv`_
   A heavily sanitized & balanced noncoding pathogenicity dataset for scoring variant models. It's small, but that just means its quality is higher. 
   
@@ -55,4 +58,5 @@ Pertubration tries to figure out what makes a sequence 'tick' by poking or prodd
 .. _`gpra-c`: ./tasks/gpra_c.html
 .. _`gpra-d`: ./tasks/gpra_d.html
 .. _`cadd-snv`: ./tasks/cadd_snv.html
+.. _`cadd-indel`: ./tasks/cadd_indel.html
 .. _`clinvar-snv`: ./tasks/clinvar_snv.html

@@ -1,22 +1,22 @@
 
 .. admonition:: Under development
     
-    The cadd-snv datasets are still being refined, and information on this page is liable to change.    
+    The cadd-indel datasets are still being refined, and information on this page is liable to change.    
 
 ======================
-cadd-snv
+cadd-indel
 ======================
 
- | tags: deleteriousness, variant interpretation, perturbation, CADD, SNV
+ | tags: deleteriousness, variant interpretation, insertions, deletions, indels, CADD,
 
 tl;dr
 ------ 
-``cadd-snv`` is a single-nucleotide variant modeling task, where models attempt to separate a set of 'benign' variants from a set of 'deleterious' (simulated) variants, as in the `original CADD`_\ .   
+``cadd-indel`` is a insertion-deletion (indel) modeling task, where models attempt to separate a set of 'benign' variants from a set of 'deleterious' (simulated) variants, as in the `original CADD`_\ .   
 
 overview
 --------
 
-Aligning a personal (i.e. real) genome to the a reference genome creates a variant call file --  a list of all divergences from the reference sequence. These divergences can often be **atomized** into variants, as many (not all) regions of the genome are additive (i.e. non-epistatic). Single-nucleotide variants, being the shortest and simplest type of variant (just 1 bp **substitutions**), have absorbed the bulk of prior variant effect research. 
+Aligning a personal (i.e. real) genome to the a reference genome creates a variant call file --  a list of all divergences from the reference sequence. These divergences can often be **atomized** into variants, as many (not all) regions of the genome are additive (i.e. non-epistatic). Indel variants, being intermediate in size (short deletions or multi-bp **insertions**), are more complex than single-nucleotide substitutions, but are still frequent and easier to model than large-scale structural variants. 
 
 The `original CADD`_ model demonstrated that deleterious (or 'evolutionarily harmful') variants can be modeled *in simulation* by contrasting:
     - proxy benign variants: alleles derived from the human-chimp common ancestor, versus

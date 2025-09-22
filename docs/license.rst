@@ -33,7 +33,7 @@ If you modify or **redistribute** the tasks (including models built on tasks) in
 
 - `gpra-c and gpra-d (CC-BY-4.0)`_ 
 
-- `cadd_snv (modified MIT -- commercial entities may need a license to release models based on this data)`_ 
+- `cadd_snv and cadd_indel (modified MIT -- commercial entities may need a license to release models based on this data)`_ 
 
 - `clinvar_snv (public domain)`_
 
@@ -44,7 +44,7 @@ Website content (e.g. the page you are reading) is presently under copyright by 
 .. _`dnase and ccre (CC-BY-4.0)`: https://www.encodeproject.org/about/data-access/
 .. _`cons30 and cons100 (public domain)`: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP100way/
 .. _`gpra-c and gpra-d (CC-BY-4.0)`: https://zenodo.org/records/4436477 
-.. _`cadd_snv (modified MIT -- commercial entities may need a license to release models based on this data)`: https://cadd.gs.washington.edu/contact 
+.. _`cadd_snv and cadd_indel (modified MIT -- commercial entities may need a license to release models based on this data)`: https://cadd.gs.washington.edu/contact 
 .. _`clinvar_snv (public domain)`: https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/
 
 .. _`GUANinE v1.0`: https://proceedings.mlr.press/v240/robson24a.html

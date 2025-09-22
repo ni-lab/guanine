@@ -33,6 +33,8 @@ GUANinE Tasks, at a high level
 +---------------+---------------------+-------------------+-------------------+
 | `cadd-snv`_   | Deleteriousness     | Sequence variant  | Human (simulated) |
 +---------------+---------------------+-------------------+-------------------+
+| `cadd-indel`_ | Deleteriousness     | Indel variant     | Human (simulated) |
++---------------+---------------------+-------------------+-------------------+
 | `clinvar-snv`_| Pathogenicity       | Sequence variant  | Human (clinical)  |
 +---------------+---------------------+-------------------+-------------------+
 
@@ -69,6 +71,7 @@ GUANinE Tasks, at a high level
 .. _`gpra-c`: ./tasks/gpra_c.html
 .. _`gpra-d`: ./tasks/gpra_d.html
 .. _`cadd-snv`: ./tasks/cadd_snv.html
+.. _`cadd-indel`: ./tasks/cadd_indel.html
 .. _`clinvar-snv`: ./tasks/clinvar_snv.html
 
 .. _`getting started`: ./installation.html

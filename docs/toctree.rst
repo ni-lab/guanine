@@ -22,6 +22,7 @@ GUANinE
    tasks/gpra_c
    tasks/gpra_d
    tasks/cadd_snv
+   tasks/cadd_indel
    tasks/clinvar_snv
 
 .. toctree::
